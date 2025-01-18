@@ -20,9 +20,13 @@ async function getDishes(req, res) {
 
 async function updateDish(req, res) {
   try {
-    const { id } = req.params;
-    const dish = await Dish.findByIdAndUpdate(id,{ ...req.body} );
-    return res.json(dish); 
+    let {name,quantity,calories}=req.body
+    const { dishid,itemid } = req.query;
+    const dish = await Dish.updateMany(
+      { _id: dishid, "items._id": itemid },
+      { $set: { "items.$.name": name, "items.$.quantity": quantity,"items.$.calories":calories } }
+    );
+    return res.json({msg:'item updated',dish}); 
     }
     catch (error) {
     res.status(500).json({ error: error.message });
@@ -31,10 +35,10 @@ async function updateDish(req, res) {
 
 async function deleteDish(req, res) {
   try {
-    const { id } = req.params;
-    const dish = await Dish.findByIdAndDelete(id);
+    const { dishid,itemid } = req.query;
+    const dish=await Dish.updateMany({_id:dishid},{$pull:{items:{_id:itemid}}})
     if (dish) {
-      return res.status(204).send('deleted successfully');
+      return res.json({ message: 'Dish deleted' });
     }
     throw new Error('Dish not found');
   } catch (error) {
@@ -42,4 +46,10 @@ async function deleteDish(req, res) {
   }
 }
 
-export { createDish, getDishes, updateDish, deleteDish };
+async function getdish(req,res){
+  let id=req.params.id;
+  let dish=await Dish.findById(id)
+  return res.json(dish)
+  
+}
+export { createDish, getDishes, updateDish, deleteDish ,getdish};
