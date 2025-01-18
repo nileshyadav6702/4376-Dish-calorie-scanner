@@ -25,7 +25,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(restrictologinuser);
 
-const MONGO_URI = "mongodb://127.0.0.1:27017/dish-api";
+const MONGO_URI ="mongodb+srv://rameshkumaryadav6703:m1cXYjpNSPsG0qiP@cluster0.onlar.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
 /**
