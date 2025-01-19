@@ -14,7 +14,7 @@ const Home = () => {
     let [calorie,setcalorie]=useState('')
     let [edit,setedit]=useState(false)
     let [success,setsuccess]=useState(false)
-    let url="http://localhost:3000"
+    let url = "https://four376-dish-calorie-scanner.onrender.com";
     if(!localStorage.getItem('user')){
         navigate('/signup')
     }
