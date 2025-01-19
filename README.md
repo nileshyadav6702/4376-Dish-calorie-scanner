@@ -9,16 +9,31 @@ In this Website uses can scan the qr code and can get the data of that food item
 **Server:** Node, Express
 
 **Database:** Mongodb
+## Images
 
+### Home Page
+  ![Home Page](./assets/home.png)
+
+  ### Sign Up Page
+  ![Sign Up Page](./assets/signup.png)
+
+  ### Add Dish Page
+  ![Add Dish Page](./assets/additem.png)
+
+  ### Dish List Page
+  ![Dish List Page](./assets/items.png)
     
 ## Key Features  
 1. **User Authentication**:  
-   - **Sign Up**: Users must register before accessing the platform.  
-   - **Login**: Secure login with validation; incorrect email or password prevents access.  
+
+    - **Login**: Secure login with validation; incorrect email or password prevents access.
+
+   
 
 2. **Profile Management**:  
    - View personal details.  
    - Log out option for enhanced security.  
+   
 
 3. **Dish Management**:  
    - Add new dishes with calorie data (stored in the backend).  
@@ -28,6 +43,7 @@ In this Website uses can scan the qr code and can get the data of that food item
 4. **QR Code Integration**:  
    - Each dish generates a QR code.  
    - Scanning the QR displays full dish details, including calories and nutritional content.  
+
 
 5. **Intuitive Navigation**:  
    - Clean navbar with logo (left), profile (right), and "Add Dish" option in the center.  
