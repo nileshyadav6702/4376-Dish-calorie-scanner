@@ -14,7 +14,7 @@ const Home = () => {
     let [calorie,setcalorie]=useState('')
     let [edit,setedit]=useState(false)
     let [success,setsuccess]=useState(false)
-
+    let url="http://localhost:3000"
     if(!localStorage.getItem('user')){
         navigate('/signup')
     }
@@ -28,7 +28,7 @@ const Home = () => {
          alert("Please fill all the fields");
          return;
        }
-       axios.put(`http://localhost:3000/api/dishes?dishid=${ides.dishid}&itemid=${ides.itemid}`, {
+       axios.put(`${url}/api/dishes?dishid=${ides.dishid}&itemid=${ides.itemid}`, {
             name: itemname,
             quantity: quantity,
             calories: calorie,
@@ -48,16 +48,15 @@ const Home = () => {
         .catch(error=>console.log(error))
      }
     useEffect(()=>{
-        axios.get('http://localhost:3000/api/dishes')
+        axios.get(`${url}/api/dishes`)
         .then(res=>{
             setdish(res.data)
         })
     },[])
 
     function dlitem(dishid,itemid){
-        axios.delete(`http://localhost:3000/api/dishes?dishid=${dishid}&itemid=${itemid}`)
+        axios.delete(`${url}/api/dishes?dishid=${dishid}&itemid=${itemid}`)
         .then(res=>console.log(res.data))
-        console.log(dishid,itemid)
     }
     function getalldishdata(dish){
         let para=''
@@ -76,7 +75,7 @@ const Home = () => {
     function edititem(dishid,itemid){   
         setids({dishid,itemid})
         setedit(true)
-        axios.get(`http://localhost:3000/api/dishes/${dishid}`)
+        axios.get(`${url}/api/dishes/${dishid}`)
         .then(res=>{
             let item=res.data.items.filter((item)=>item._id===itemid)[0]
             setitemname(item.name)

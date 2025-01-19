@@ -7,9 +7,10 @@ const Login = () => {
     const [password,setpassword]=useState("")
     const [error,seterror]=useState(false)
     const navigate=useNavigate()
+    let url = "http://localhost:3000";
     function submithandler(e){  
         e.preventDefault()
-        axios.post('http://localhost:3000/user/signin',{email,password})
+        axios.post(`${url}/user/signin`,{email,password})
         .then(res=>{
             if(res.data.error){
                 seterror(true)

@@ -11,9 +11,11 @@ import path from "path";
 import userrouter from "./routes/user.js";
 import { urlencoded } from 'express';
 import { restrictologinuser } from './middleware/auth.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const app = express();
-const port = 3000;
+const port =process.env.PORT || 3000;
 
 /**
  * Middleware to parse JSON and URL-encoded data and cookies.
@@ -25,8 +27,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(restrictologinuser);
 
-const MONGO_URI ="mongodb+srv://rameshkumaryadav6703:m1cXYjpNSPsG0qiP@cluster0.onlar.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const MONGO_URI =process.env.MONGO_URI;
 
 /**
  * Connects to MongoDB using Mongoose.
