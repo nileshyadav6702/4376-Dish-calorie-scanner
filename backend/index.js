@@ -57,5 +57,4 @@ app.use("/api/dishes", dishRoutes);
  * Logs a message indicating the server is running.
  */
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
 });
