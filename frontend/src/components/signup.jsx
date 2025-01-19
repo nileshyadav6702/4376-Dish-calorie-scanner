@@ -8,10 +8,11 @@ const Signup = () => {
   const [password,setpassword]=useState("")
   const [error,seterror]=useState(false)
   const navigate=useNavigate()
+  let url=`http://localhost:3000`
 
   function onsubmit(e){
     e.preventDefault()
-    axios.post('http://localhost:3000/user/signup',{name,email,password})
+    axios.post(`${url}/user/signup`,{name,email,password})
     .then(function(res){
       res.data.error ? seterror(res.data.error) : navigate("/signin");
     })

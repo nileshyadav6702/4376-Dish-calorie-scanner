@@ -9,6 +9,7 @@ const Adddish = () => {
     const [quantity,setquantity]=useState('')
     const [calorie,setcalorie]=useState('')
     const [success,setsuccess]=useState(false)
+    let url="http://localhost:3000/api/dishes"
 
     function createitem(e){
         e.preventDefault()
@@ -34,7 +35,7 @@ const Adddish = () => {
             return
         }
          axios
-           .post("http://localhost:3000/api/dishes", {name:dishname,items:allitems})
+           .post(url ,{name:dishname,items:allitems})
            .then(function (res) {
             setdishname('')
             setallitems([])
@@ -44,7 +45,6 @@ const Adddish = () => {
             },3000)
             console.log(res)
            })
-        console.log({name:dishname,items:allitems})
     }
    
   return (
