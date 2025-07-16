@@ -56,5 +56,9 @@ app.use("/api/dishes", dishRoutes);
  * Starts the server and listens on the specified port.
  * Logs a message indicating the server is running.
  */
-app.listen(port, () => {
+const server = app.listen(port, "0.0.0.0", () => {
+  console.log(`✅ Server started on port ${port}`);
 });
+
+server.keepAliveTimeout = 120000;
+server.headersTimeout = 120000;

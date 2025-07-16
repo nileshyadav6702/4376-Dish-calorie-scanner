@@ -9,7 +9,7 @@ const Adddish = () => {
     const [quantity,setquantity]=useState('')
     const [calorie,setcalorie]=useState('')
     const [success,setsuccess]=useState(false)
-    let url = "https://four376-dish-calorie-scanner.onrender.com";
+    let url = "http://localhost:3000";
 
     function createitem(e){
         e.preventDefault()

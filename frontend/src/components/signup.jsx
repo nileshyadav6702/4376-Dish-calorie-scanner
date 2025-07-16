@@ -8,7 +8,7 @@ const Signup = () => {
   const [password,setpassword]=useState("")
   const [error,seterror]=useState(false)
   const navigate=useNavigate()
-  let url = `https://four376-dish-calorie-scanner.onrender.com`;
+  let url = `http://localhost:3000`;
 
   function onsubmit(e){
     e.preventDefault()
